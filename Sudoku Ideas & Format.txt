@@ -1,0 +1,44 @@
+Solve sudoku
+	Solve samurai sudoku
+	Use different CSP algorithms
+
+fetch sudokus
+	turn it into usable data
+	Agree on standard format to store puzzle
+
+statistical analysis
+	Number of guesses made
+	Difficulty of puzzle
+	number of cells filled in to start
+		which cells are filled in?
+	instances of number in initial puzzle - correlate with difficulty
+	average length of backtracking
+	where are guesses being made?
+	How does a human solving the puzzle compare with the computer?
+	Which CSP algorithm most closely resembles a human solution?
+	Are all initial valid sudoku cofiguratiosn solvable?
+	How many solutions? Is there a unique solution?
+	number of givens, minimum number of givens
+
+
+000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000000
+000000000000000000000
+000000000000000000000
+000000000
+000000000
+000000000
+000000000000000000000
+000000000000000000000
+000000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000
+000000000000000000
