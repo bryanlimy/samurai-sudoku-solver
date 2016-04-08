@@ -163,6 +163,9 @@ def display(values, sqr): #works for regular sudokus only
     print()
 
 def display_samurai(vals): #prints the squares in order of: top left, top right, bottom left, bottom right, middle. Note that the middle square overlaps with the other 4 and will contain duplicate values
+    if not vals:
+        print("Sudoku was not solved")
+        return
     print("Top left:")
     display(vals, square_a)
     print("Top right:")
@@ -235,11 +238,6 @@ def solved(values):
     "A puzzle is solved if each unit is a permutation of the digits 1 to 9."
     def unitsolved(unit): return set(values[s] for s in unit) == set(digits)
     return values is not False and all(unitsolved(unit) for unit in all_unitlists)
-
-
-grid1  = '003020600900305001001806400008102900700000008006708200002609500800203009005010300'
-grid2  = '4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......'
-hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6..................'
 
 #####################################
 
