@@ -191,7 +191,7 @@ def display_samurai(vals):
     other 4 and will contain duplicate values
     """
     if not vals:
-        print("Sudoku was not solved")
+        print("Solution not found, please check if test is valid.")
         return
     sqrs = [square_a, square_b, square_c, square_d, square_mid]
     valid = checker(vals, sqrs)
