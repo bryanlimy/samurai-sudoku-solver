@@ -12,6 +12,7 @@
 ##   values is a dict of possible values, e.g. {'A1':'12349', 'A2':'8', ...}
 
 import os
+from checker import checker
 
 #os.chdir("C:\\Users\\Kieran\\Documents\\Work\\CSC384\\Project\\")
 
@@ -166,6 +167,8 @@ def display_samurai(vals): #prints the squares in order of: top left, top right,
     if not vals:
         print("Sudoku was not solved")
         return
+    sqrs = [square_a, square_b, square_c, square_d, square_mid]
+    valid = checker(vals, sqrs)
     print("Top left:")
     display(vals, square_a)
     print("Top right:")
@@ -176,6 +179,10 @@ def display_samurai(vals): #prints the squares in order of: top left, top right,
     display(vals, square_d)
     print("Middle:")
     display(vals, square_mid)
+    if valid:
+        print("Solution verified, correct Samurai Sudoku.")
+    else:
+        print("Incorrect Samurai Sudoku solution.")
 
     
 ################ Search ################
@@ -242,8 +249,14 @@ def solved(values):
 #####################################
 
 if __name__ == '__main__':
-    txt = input("input the name of the file containing the samurai sudoku to be solved (with path if necessary).\n")
-    f = open(txt, 'r')
+    prompt = 1
+    while prompt:
+        txt = input("Insert the name of a file containing the Samurai Sudoku:")
+        try:
+            f = open(txt, 'r')
+            prompt = 0
+        except FileNotFoundError:
+            print("File not found. Check directory under ~/tests\n")
     samurai_grid = f.read().split('\n')
     ans = solve(samurai_grid)
     display_samurai(ans)
