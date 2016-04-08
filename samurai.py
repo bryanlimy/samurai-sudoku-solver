@@ -200,7 +200,7 @@ def some(seq):
 
 def from_file(filename, sep='\n'):
     "Parse a file into a list of strings, separated by sep."
-    return file(filename).read().strip().split(sep)
+    return open(filename, 'r').read().strip().split(sep)
 
 def shuffled(seq):
     "Return a randomly shuffled copy of the input sequence."
@@ -234,7 +234,7 @@ def solve_all(grids, name='', showif=0.0):
 def solved(values):
     "A puzzle is solved if each unit is a permutation of the digits 1 to 9."
     def unitsolved(unit): return set(values[s] for s in unit) == set(digits)
-    return values is not False and all(unitsolved(unit) for unit in unitlist)
+    return values is not False and all(unitsolved(unit) for unit in all_unitlists)
 
 
 grid1  = '003020600900305001001806400008102900700000008006708200002609500800203009005010300'
