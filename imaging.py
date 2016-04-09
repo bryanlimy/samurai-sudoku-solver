@@ -23,3 +23,6 @@ if __name__ == '__main__' and len(sys.argv) == 2:
 	data = data.pivot('Y-Axis', 'X-Axis', 'Number of Hits')
 	ax = sns.heatmap(data)
 	sns.plt.show()
+
+## References used:
+## https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.heatmap.html

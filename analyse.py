@@ -166,10 +166,10 @@ def write_counter_to_database(name, counter):
 
 ################ Testing ################
 
-class TimeoutException(Exception):   # Custom exception class
+class TimeoutException(Exception):
     pass
 
-def timeout_handler(signum, frame):   # Custom signal handler
+def timeout_handler(signum, frame):
     raise TimeoutException
 
 # Change behavior of SIGALRM
@@ -188,7 +188,7 @@ if __name__ == '__main__':
     num_loops = 10000
 
     for i in range(num_loops):
-        # Start the timer. Once 20 seconds are over, a SIGALRM signal is sent.
+        # Start timer. Once 10 seconds are over, a SIGALRM signal is sent.
         signal.alarm(10)   
 
         # This try/except loop ensures that 
@@ -208,10 +208,10 @@ if __name__ == '__main__':
         except TimeoutException:
             timeout_counter += 1
             print("timout", i)
-            continue # continue the for loop if solving takes more than 20 second
+            continue # continue the for loop if solving takes more than 10 second
         else:
             print("non-timeout", i)
-            # Reset the alarm
+            # Reset alarm
             signal.alarm(0)
 
 
@@ -228,4 +228,6 @@ if __name__ == '__main__':
     write_counter_to_database('grid_c_success_hits.csv', c)
     write_counter_to_database('grid_d_success_hits.csv', d)
     write_counter_to_database('grid_plus_success_hits.csv', plus)
-    
+
+## References used:
+## Various StackOverFlow QA's
