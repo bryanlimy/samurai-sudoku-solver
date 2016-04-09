@@ -204,7 +204,7 @@ if __name__ == '__main__':
                 c.update(counts['c'])
                 d.update(counts['d'])
                 plus.update(counts['+'])
-                # samurai.display_samurai(ans)
+                # samurai.display_samurai(ans) # IMPORTANT*: Used to check solution correctness
         except TimeoutException:
             timeout_counter += 1
             # print("timout", i)
