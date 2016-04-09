@@ -193,8 +193,6 @@ def display_samurai(vals):
     if not vals:
         print("Solution not found, please check if test is valid.")
         return
-    sqrs = [square_a, square_b, square_c, square_d, square_mid]
-    valid = checker(vals, sqrs)
     print("Top left:")
     display(vals, square_a)
     print("Top right:")
@@ -205,10 +203,10 @@ def display_samurai(vals):
     display(vals, square_d)
     print("Middle:")
     display(vals, square_mid)
-    if valid:
-        print("Solution verified, correct Samurai Sudoku.")
-    else:
-        print("Incorrect Samurai Sudoku solution.")
+
+    # run checker function to check if solution is a valid samurai sudoku
+    checker(vals, [square_a, square_b, square_c, square_d, square_mid])
+
 
     
 ################ Search ################

@@ -5,6 +5,10 @@ cols = digits
 
 
 def checker(values, sqrs):
+    """
+    Given the values and squares of a samurai sudoku
+    Return True if its a valid samurai sudoku, False otherwise
+    """
     # samurai sudoku in the order of top left, top right, bottom left,
     # bottom right, middle
     samurai = []
@@ -14,6 +18,7 @@ def checker(values, sqrs):
 
     for sudoku in samurai:
         if not check_sudoku(sudoku):
+            print("Invalid Samurai Sudoku.")
             return False
 
     corners_coordinate = [
@@ -25,21 +30,17 @@ def checker(values, sqrs):
     # check overlapped corners
     for corner in corners_coordinate:
         if not check_corners(corner[0], corner[1]):
+            print("Invalid Samurai Sudoku")
             return False
+
+    print("Solution has been verified, valid Samurai Sudoku.")
     return True
-
-'''
-
-'''
-
 
 def check_sudoku(sudoku):
     """
     Given the sudoku
     Check each uniqueness of each sub box, each row and each column
     Return True if sudoku is valid, False otherwise
-    :param sudoku: target sudoku
-    :return: True if sudoku is valid, False otherwise
     """
     # coordinates of the top left corner for all boxes in a suduko
     box_coordinate = [
@@ -74,9 +75,6 @@ def check_corners(box1, box2):
     """
     Given the sudokus and coordinates
     Return True if corners are equal, False otherwise
-    :param box1: first box grid in the format of [sudoku, [row, col]]
-    :param box2: second box grid in the format of [sudoku, [row, col]]
-    :return: True if two grids are identical, False otherwise
     """
     box1_list = get_box(box1[0], box1[1][0], box1[1][1])
     box2_list = get_box(box2[0], box2[1][0], box2[1][1])
@@ -86,8 +84,7 @@ def check_corners(box1, box2):
 def check_unique_list(input):
     """
     Given a list, check if it is equal to a sorted list containing 1-9
-    :param input: list to check uniqueness
-    :return: True if the given list is unique, False otherwise
+    Return True if the given list is unique, False otherwise
     """
     # convert list string into list of int and sort it
     int_list = list(map(int, input))
@@ -98,9 +95,7 @@ def check_unique_list(input):
 def generate_sudoku(values, sqr):
     """
     Return a sudoku with the given values and square
-    :param values: values of the solved samurai sudoku
-    :param sqr: key value of this sudoku
-    :return: sudoku in a 2D grid format
+    Return the sudoku in a 2D grid format
     """
     sudoku = [[None]*9]*9
     i = 0
@@ -117,10 +112,7 @@ def get_box(sudoku, row, col):
     """
     Return the box with the given coordinate of the top left corner value in
     the sudoku
-    :param sudoku: target sudoku
-    :param row: row index of the most top left corner item in the grid
-    :param col: col index of the most top left corner item in the grid
-    :return: 3 by 3 grid
+    Return a 3 by 3 grid
     """
     box = [[]*3]*3
     count = 3
@@ -133,7 +125,6 @@ def get_box(sudoku, row, col):
 def matrix2list(matrix):
     """
     Given a two dimensional matrix, return a flatten list
-    :param matrix: 2 by 2 nested list
-    :return: flatten list
+    Return a flatten list
     """
     return [val for sublist in matrix for val in sublist]
