@@ -1,0 +1,9 @@
+####################################################################################################
+Number of Initial Squares Filled in each Grid Quadrant:
+Top Left:  30 Top Right:  30 Bottom Left:  30 Bottom Right:  30 Centre:  10
+Successes:      46
+Failures:       954
+Success Ratio:  0.046
+Timouts:        0
+Timout Ratio:   0.0
+####################################################################################################

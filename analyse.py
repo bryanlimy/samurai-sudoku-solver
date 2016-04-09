@@ -185,7 +185,7 @@ plus = Counter()
 if __name__ == '__main__':
     success_counter = 0
     timeout_counter = 0
-    num_loops = 10000
+    num_loops = 1000
 
     for i in range(num_loops):
         # Start timer. Once 10 seconds are over, a SIGALRM signal is sent.
@@ -207,15 +207,24 @@ if __name__ == '__main__':
                 # samurai.display_samurai(ans)
         except TimeoutException:
             timeout_counter += 1
-            print("timout", i)
+            # print("timout", i)
             continue # continue the for loop if solving takes more than 10 second
         else:
-            print("non-timeout", i)
             # Reset alarm
             signal.alarm(0)
+            # print("non-timeout", i)
 
+
+    # Write grid counts to csv files
+    # write_counter_to_database('grid_a_success_hits.csv', a)
+    # write_counter_to_database('grid_b_success_hits.csv', b)
+    # write_counter_to_database('grid_c_success_hits.csv', c)
+    # write_counter_to_database('grid_d_success_hits.csv', d)
+    # write_counter_to_database('grid_plus_success_hits.csv', plus)
 
     print('#'*100)
+    print("Number of Initial Squares Filled in each Grid Quadrant:")
+    print("Top Left: ", 17, "Top Right: ", 17, 'Bottom Left: ', 17, 'Bottom Right: ', 17, 'Centre: ', 17)
     print("Successes:     ", success_counter)
     print("Failures:      ", num_loops-success_counter)
     print("Success Ratio: ", success_counter/num_loops)
@@ -223,11 +232,6 @@ if __name__ == '__main__':
     print("Timout Ratio:  ", timeout_counter/num_loops)
     print('#'*100)
 
-    write_counter_to_database('grid_a_success_hits.csv', a)
-    write_counter_to_database('grid_b_success_hits.csv', b)
-    write_counter_to_database('grid_c_success_hits.csv', c)
-    write_counter_to_database('grid_d_success_hits.csv', d)
-    write_counter_to_database('grid_plus_success_hits.csv', plus)
 
 ## References used:
 ## Various StackOverFlow QA's
