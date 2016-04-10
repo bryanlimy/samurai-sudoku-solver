@@ -205,6 +205,8 @@ if __name__ == '__main__':
                 d.update(counts['d'])
                 plus.update(counts['+'])
                 samurai.display_samurai(ans) # IMPORTANT*: Used to check solution correctness
+            else:
+                print("Puzzle Unsolvable!")
         except TimeoutException:
             timeout_counter += 1
             print("timout", i)
@@ -230,6 +232,7 @@ if __name__ == '__main__':
     print("Success Ratio: ", success_counter/num_loops)
     print("Timouts:       ", timeout_counter)
     print("Timout Ratio:  ", timeout_counter/num_loops)
+    print("Failures include puzzles with no solution and puzzles that the solver took too long to solve")
     print('#'*100)
 
 
