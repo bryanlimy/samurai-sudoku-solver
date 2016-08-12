@@ -1,8 +1,8 @@
-Solve sudoku
-	Solve samurai sudoku
+Solve Sudoku
+	Solve samurai Sudoku
 	Use different CSP algorithms
 
-fetch sudokus
+Fetch Sudokus
 	turn it into usable data
 	Agree on standard format to store puzzle
 
@@ -16,7 +16,7 @@ statistical analysis
 	where are guesses being made?
 	How does a human solving the puzzle compare with the computer?
 	Which CSP algorithm most closely resembles a human solution?
-	Are all initial valid sudoku cofiguratiosn solvable?
+	Are all initial valid Sudoku configuration solvable?
 	How many solutions? Is there a unique solution?
 	number of givens, minimum number of givens
 
